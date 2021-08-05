@@ -1,1 +1,45 @@
-<h1>DOM Play</h1>
+<html>
+
+<head>
+    <title>DOM Play</title>
+</head>
+
+<body>
+    <h1>DOM Play</h1>
+    <div id="clickSpans">
+        <p><span data-actor="marcellus">Marcellus: Peace, break thee off; look, where it comes again! </span></p>
+        <p><span data-actor="bernardo">Bernardo: In the same figure, like the king that's dead.</span></p>
+        <p><span data-actor="marcellus">Marcellus: Thou art a scholar; speak to it, Horatio.</span></p>
+        <p><span data-actor="bernardo">Bernardo: Looks it not like the king? mark it, Horatio.</span></p>
+        <p><span data-actor="horatio">Horatio: Most like: it harrows me with fear and wonder.</span></p>
+        <p><span data-actor="bernardo">Bernardo: It would be spoke to.</span></p>
+        <p><span data-actor="marcellus">Marcellus: Question it, Horatio..</span></p>
+        <p><span data-actor="horatio">Horatio: What art thou that usurp'st this time of night,.</span></p>
+        <p><span data-actor="marcellus">Marcellus: It is offended.</span></p>
+        <p><span data-actor="bernardo">Bernardo: See, it stalks away!</span></p>
+        <p><span data-actor="horatio">Horatio: Stay! speak, speak! I charge thee, speak!</span></p>
+    </div>
+    <script>
+        var spans = document.querySelectorAll("#clickSpans span");
+        for (const mySpan of spans) {
+            mySpan.addEventListener("click", function (event) {
+                highlightRole(mySpan.dataset.actor);
+            });
+        }
+
+        function highlightRole(myActor) {
+            for (const mySpan of spans) {
+                if (mySpan.dataset.actor == myActor) {
+                    mySpan.style.backgroundColor = "pink";
+                } else {
+                    mySpan.style.backgroundColor = "white";
+                }
+            }
+            // else {
+            //     mySpan.style.backgroundColor = "yellow";
+            // }
+        }
+    </script>
+</body>
+
+</html>
